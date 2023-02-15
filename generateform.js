@@ -164,26 +164,9 @@ $(document).ready(function(){
     event.preventDefault();
     var formData = $(this).serialize();
     $.ajax({
-      beforeSend: function(xhr, settings) {
-        xhr.setRequestHeader('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3');
-        xhr.setRequestHeader('Accept-Language', 'en-US,en;q=0.5');
-        xhr.setRequestHeader('Origin', 'https://docs.google.com');
-        xhr.setRequestHeader( 'Content-Type', 'application/json')
-        // Add any other headers you need here
-      },
       type: "POST",
       url: aUrl, // Your server-side script to handle the form data
       data: formData,
-      crossDomain: true,
-      headers: {
-        'Access-Control-Allow-Origin':'http://127.0.0.1:5501/',
-        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
-        'Accept-Language': 'en-US,en;q=0.5',
-        'Origin':'https://docs.google.com',
-        'Content-Type': 'application/json',
-        'Origin': 'https://docs.google.com'
-      },
       success: function(data, textStatus, xhr) {
         if (xhr.status === 200) {
           
